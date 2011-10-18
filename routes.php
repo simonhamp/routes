@@ -41,5 +41,7 @@
 					return $val;
 				}
 			}
+			
+			return $uri;
 		}
 	}
