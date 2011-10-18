@@ -1,0 +1,40 @@
+<?php
+	class Routes {
+		private static $routes = array();
+	
+		public static function add( $src, $dest = null ) {
+			// TODO: Validate the routes?
+		
+			if ( is_array( $src ) ) {
+				foreach ( $src as $key => $val ) {
+					self::$routes[ $key ] = $val;
+				}
+			}
+			elseif ( $dest ) {
+				self::$routes[ $src ] = $dest;
+			}
+		}
+	
+		public static function route( $uri ) {
+			// Is there a literal match?
+			if ( isset( self::$routes[ $uri ] ) ) {
+				return self::$routes[ $uri ];
+			}
+
+			// Loop through the route array looking for wild-cards
+			foreach ( self::$routes as $key => $val) {
+				// Convert wild-cards to RegEx
+				$key = str_replace( ':any', '.+', str_replace( ':num', '[0-9]+', $key ) );
+
+				// Does the RegEx match?
+				if ( preg_match( '#^' . $key . '$#', $uri ) ) {
+					// Do we have a back-reference?
+					if ( strpos( $val, '$' ) !== false && strpos( $key, '(' ) !== false ) {
+						$val = preg_replace( '#^' . $key . '$#', $val, $uri );
+					}
+
+					return $val;
+				}
+			}
+		}
+	}
