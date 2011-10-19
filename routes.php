@@ -1,24 +1,25 @@
 <?php
 	class Routes {
-		private static $routes = array();
+		
+		protected static $routes = array();
 	
 		public static function add( $src, $dest = null ) {
 			// TODO: Validate the routes?
 		
 			if ( is_array( $src ) ) {
 				foreach ( $src as $key => $val ) {
-					self::$routes[ $key ] = $val;
+					static::$routes[ $key ] = $val;
 				}
 			}
 			elseif ( $dest ) {
-				self::$routes[ $src ] = $dest;
+				static::$routes[ $src ] = $dest;
 			}
 		}
 	
 		public static function route( $uri ) {
 			// Is there a literal match?
-			if ( isset( self::$routes[ $uri ] ) ) {
-				return self::$routes[ $uri ];
+			if ( isset( static::$routes[ $uri ] ) ) {
+				return static::$routes[ $uri ];
 			}
 
 			// Loop through the route array looking for wild-cards
