@@ -1,6 +1,6 @@
 <?php
 	class Routes {
-		
+		protected static $allow_query = true;
 		protected static $routes = array();
 	
 		public static function add( $src, $dest = null ) {
@@ -17,13 +17,21 @@
 		}
 	
 		public static function route( $uri ) {
+			$qs = '';
+			
+			if ( static::$allow_query && strpos( $uri, '?' ) !== false ) {
+				// Break the query string off and attach later
+				$qs = '?' . parse_url( $uri, PHP_URL_QUERY );
+				$uri = str_replace( $qs, '', $uri );
+			}
+			
 			// Is there a literal match?
 			if ( isset( static::$routes[ $uri ] ) ) {
-				return static::$routes[ $uri ];
+				return static::$routes[ $uri ] . $qs;
 			}
-
+			
 			// Loop through the route array looking for wild-cards
-			foreach ( self::$routes as $key => $val) {
+			foreach ( static::$routes as $key => $val) {
 				// Convert wild-cards to RegEx
 				$key = str_replace( ':any', '.+', $key );
 				$key = str_replace( ':num', '[0-9]+', $key );
@@ -39,10 +47,10 @@
 						$val = preg_replace( '#^' . $key . '$#', $val, $uri );
 					}
 
-					return $val;
+					return $val . $qs;
 				}
 			}
 			
-			return $uri;
+			return $uri . $qs;
 		}
 	}
