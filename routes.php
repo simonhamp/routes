@@ -26,8 +26,8 @@
 			}
 			
 			// Is there a literal match?
-			if ( isset( static::$routes[ $uri ] ) ) {
-				return static::$routes[ $uri ] . $qs;
+			if ( isset( static::$routes["{$uri}"] ) ) {
+				return static::$routes["{$ur}"] . $qs;
 			}
 			
 			// Loop through the route array looking for wild-cards
