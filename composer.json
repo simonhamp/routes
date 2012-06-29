@@ -1,0 +1,25 @@
+{
+  "name": "simonhamp/routes",
+  "type": "library",
+  "description": "A low-level router class for PHP based on CodeIgniter's core/Router.php.",
+  "keywords": ["php", "routing"],
+  "homepage": "https://github.com/simonhamp/routes",
+  "license": "MIT",
+
+  "require": {
+    "php": ">=5.3.0",
+    "candyCMS/core": "dev-master"
+  },
+
+  "authors": [
+  {
+    "name": "Simon Hamp"
+  }
+  ],
+
+  "autoload": {
+    "classmap": ["routes.php"]
+  },
+
+  "target-dir": ""
+}
