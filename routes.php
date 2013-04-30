@@ -1,5 +1,4 @@
 <?php
-
 class Routes {
 
   protected static $allow_query = true;
@@ -54,5 +53,13 @@ class Routes {
     }
 
     return $uri . $qs;
+  }
+
+  public static function reverseRoute($controller, $root = "/") {
+    $index = array_search($controller, static::$routes);
+    if($index === false)
+      return null;
+
+    return $root . static::$routes[$index];
   }
 }
