@@ -34,4 +34,4 @@ Using Routes you can define complex routes using simple instructions and get the
 
 Hope you find it useful! :)
 
-Questions? Comments? Feel free to [raise an issue](issues/new) or message me on Twitter [@simonhamp](http://twitter.com)
+Questions? Comments? Feel free to [raise an issue](https://github.com/simonhamp/routes/issues/new) or message me on Twitter [@simonhamp](http://twitter.com)
