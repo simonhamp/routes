@@ -4,29 +4,35 @@ Hi, thanks for checking out Routes! Routes is low-level PHP class for defining a
 
 ## Installation
 
-You can install via Composer (command below) or grab the files and include whichever way you prefer.
+Install via Composer from your command line:
 
-    composer require simonhamp/routes
+```bash
+$ composer require simonhamp/routes
+```
 
 ## Usage
 
 To use Routes, you simply need to place the class somewhere accessible within your application. Then you need to define some routes and register them:
 
-    <?php
-      include('inc/routes.php');
-	
-      Routes::add(array(
-        'testing/(:num)' => 'test/$1',
-        'posts/(:any)' => 'news/$1'
-      ));
+```php
+<?php
 
-      $origin = 'testing/1';
-      echo 'Origin: ' . $origin . '<br>';
-      echo 'Reroute: ' . Routes::route( $origin );
+include('inc/routes.php');
+
+Routes::add(array(
+    'testing/(:num)' => 'test/$1',
+    'posts/(:any)'   => 'news/$1'
+));
+
+$origin = 'testing/1';
+
+echo Routes::route($origin);
+// -> test/1
+```
 
 ## Why?
 
-In-App Routing, as opposed to URL Rewriting (e.g. .htaccess/mod_rewrite), is a popular method for defining patterns for URLs in web sites and applications. It allows the developer to make an app appear one way, but underneath go another. It's most commonly found in MVC web frameworks (Rails, Sinatra, CakePHP, CodeIgniter et al). Routing is simple, but powerful, and the concept could be really useful in situations outside of those frameworks.
+In-App Routing, as opposed to URL Rewriting (e.g. .htaccess/mod_rewrite), is a popular method for defining patterns for URLs in web sites and applications. It allows the developer to make an app appear one way, but underneath go another. It's most commonly found in MVC web frameworks (Rails, Sinatra, CakePHP, CodeIgniter et al). Routing is simple, but powerful, and the concept is also really useful in other situations outside the context of a framework.
 
 There are [other](http://dev.horde.org/routes/) [attempts](http://routes.groovie.org/) at portable routing libraries, but they're too tied into the MVC framework schema to be useful outside. That's where Routes comes in. You could use it as your routing system for yet another framework or you can keep it completely separate.
 
@@ -34,4 +40,4 @@ Using Routes you can define complex routes using simple instructions and get the
 
 Hope you find it useful! :)
 
-Questions? Comments? Feel free to [raise an issue](https://github.com/simonhamp/routes/issues/new) or message me on Twitter [@simonhamp](http://twitter.com)
+Questions? Comments? Feel free to [raise an issue](https://github.com/simonhamp/routes/issues/new)
