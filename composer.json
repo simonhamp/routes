@@ -10,13 +10,13 @@
     },
     "authors": [
         {
-            "name": "Simon Hamp"
+            "name": "Simon Hamp",
+            "homepage": "http://simonhamp.me"
         }
     ],
     "autoload": {
-        "classmap": [
-            "routes.php"
-        ]
-    },
-    "target-dir": ""
+        "psr-4": {
+            "SimonHamp\\Routes\\": "src"
+        }
+    }
 }
