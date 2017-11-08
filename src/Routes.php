@@ -2,8 +2,8 @@
 
 namespace SimonHamp\Routes;
 
-class Routes {
-
+class Routes
+{
     protected static $allow_query = true;
     protected static $routes = array();
 
