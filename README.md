@@ -17,7 +17,7 @@ To use Routes, you simply need to place the class somewhere accessible within yo
 ```php
 <?php
 
-include('inc/routes.php');
+include 'vendor/autoload.php';
 
 Routes::add(array(
     'testing/(:num)' => 'test/$1',
@@ -27,7 +27,7 @@ Routes::add(array(
 $origin = 'testing/1';
 
 echo Routes::route($origin);
-// -> test/1
+// -> 'test/1'
 ```
 
 ## Why?
