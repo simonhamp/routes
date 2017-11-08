@@ -63,7 +63,7 @@ class Routes
     {
         $index = array_search($controller, static::$routes);
         
-        if($index === false) {
+        if ($index === false) {
             return null;
         }
 
