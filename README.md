@@ -19,6 +19,8 @@ To use Routes, you simply need to place the class somewhere accessible within yo
 
 include 'vendor/autoload.php';
 
+use SimonHamp\Routes;
+
 Routes::add(array(
     'testing/(:num)' => 'test/$1',
     'posts/(:any)'   => 'news/$1'
