@@ -43,3 +43,7 @@ Using Routes you can define complex routes using simple instructions and get the
 Hope you find it useful! :)
 
 Questions? Comments? Feel free to [raise an issue](https://github.com/simonhamp/routes/issues/new)
+
+### But I want a real router!
+
+Then may I suggest the awesome [FastRoute](https://github.com/nikic/FastRoute) by [@nikic](https://github.com/nikic). It's really fast, has some awesome features, and includes a dispatcher that will pass the various parts of your routes to a method you define.
