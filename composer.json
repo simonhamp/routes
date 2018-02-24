@@ -2,18 +2,21 @@
     "name": "simonhamp/routes",
     "type": "library",
     "description": "A low-level router class for PHP based on CodeIgniter's core/Router.php.",
-    "keywords": ["php", "routing"],
+    "keywords": [
+        "php",
+        "routing"
+    ],
     "homepage": "https://github.com/simonhamp/routes",
     "license": "MIT",
-    "require": {
-        "php": ">=5.3.0"
-    },
     "authors": [
         {
             "name": "Simon Hamp",
             "homepage": "http://simonhamp.me"
         }
     ],
+    "require": {
+        "php": ">=5.3.0"
+    },
     "autoload": {
         "psr-4": {
             "SimonHamp\\Routes\\": "src"
